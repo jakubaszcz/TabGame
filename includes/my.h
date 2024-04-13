@@ -9,4 +9,6 @@
 
 void launchGame(void);
 Game *setupGame(void);
+void printTab(Game *game);
+void printUser(Game *game);
 #endif //TABGAME_MY_H

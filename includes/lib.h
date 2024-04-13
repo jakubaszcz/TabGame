@@ -5,6 +5,7 @@
 #ifndef TABGAME_LIB_H
 #define TABGAME_LIB_H
 #include <stdlib.h>
-#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include <time.h>
 #endif //TABGAME_LIB_H

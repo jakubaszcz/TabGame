@@ -18,23 +18,26 @@ void createTabValue(Game *game) {
     }
 }
 
-void printTab(Game *game) {
-    for (int i = 0; i < game->tabSize; i++) {
-        for (int j = 0; j < game->tabSize; j++)
-        {
-            printf("[%d]", game->tab[i][j]);
-        }
-        printf("\n");
-    }
-}
-
 void createTab(Game *game) {
     game->tab = createTabAllocation(game);
     createTabValue(game);
-    printTab(game);
+}
+
+void gameLoop(Game *game) {
+    char *command = NULL;
+    size_t size = 0;
+    while (1) {
+        system("clear");
+        printTab(game);
+        printUser(game);
+        getline(&command, &size, stdin);
+        game->time++;
+        continue;
+    }
 }
 
 void launchGame(void) {
     Game *game = setupGame();
     createTab(game);
+    gameLoop(game);
 }

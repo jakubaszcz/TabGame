@@ -7,6 +7,7 @@
 
 typedef struct game {
     int tabSize;
+    int time;
     int **tab;
 } Game;
 
