@@ -4,6 +4,7 @@ SRC	=	./source/game.c	\
 		./source/free.c	\
 		./source/reset.c	\
 		./source/gameplay/input.c	\
+		./source/gameplay/gameplay.c	\
 
 CFLAGS	=	-g
 

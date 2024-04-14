@@ -28,8 +28,9 @@ void gameLoop(Game *game, Error *error) {
     Map *map = NULL;
     size_t size = 0;
     while (1) {
+        system("clear");
         printTab(game);
-        printUser(game);
+        printUser(game, map);
         if (getline(&command, &size, stdin) < 0) {
             break;
         }
@@ -40,10 +41,16 @@ void gameLoop(Game *game, Error *error) {
         if (printError(game, error)) {
             resetError(error);
             continue;
+        } else {
+            gameplay(game, map, error);
+            if (game->isWin)
+                break;
         }
         game->time++;
         continue;
     }
+    if (game->isWin)
+        printWin(game);
     free(command);
     free(error);
     freeMap(map);

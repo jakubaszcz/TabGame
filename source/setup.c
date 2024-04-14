@@ -2,8 +2,12 @@
 
 Game *setupGame(void) {
     Game *game = malloc(sizeof(Game));
+    ChainReaction *chainReaction = NULL;
+    game->hasPlayed = 0;
     game->tabSize = 10;
     game->time = 0;
+    game->isWin = 0;
+    game->chainReaction = chainReaction;
     return game;
 }
 
