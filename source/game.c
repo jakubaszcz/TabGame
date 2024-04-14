@@ -23,21 +23,36 @@ void createTab(Game *game) {
     createTabValue(game);
 }
 
-void gameLoop(Game *game) {
+void gameLoop(Game *game, Error *error) {
     char *command = NULL;
+    Map *map = NULL;
     size_t size = 0;
     while (1) {
-        system("clear");
         printTab(game);
         printUser(game);
-        getline(&command, &size, stdin);
+        if (getline(&command, &size, stdin) < 0) {
+            break;
+        }
+        if (strlen(command) <= 1) {
+            continue;
+        }
+        map = input(game, error, command);
+        if (printError(game, error)) {
+            resetError(error);
+            continue;
+        }
         game->time++;
         continue;
     }
+    free(command);
+    free(error);
+    freeMap(map);
+    freeGame(game);
 }
 
 void launchGame(void) {
     Game *game = setupGame();
+    Error *error = setupError();
     createTab(game);
-    gameLoop(game);
+    gameLoop(game, error);
 }

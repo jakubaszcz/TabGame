@@ -11,4 +11,17 @@ typedef struct game {
     int **tab;
 } Game;
 
+typedef struct error {
+    int isError;
+    int isSize;
+    int isAlpha;
+    int isArguments;
+} Error;
+
+typedef struct map {
+    char **array;
+    int length;
+    int count;
+} Map;
+
 #endif //TABGAME_STRUCTURE_H

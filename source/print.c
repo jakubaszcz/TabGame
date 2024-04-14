@@ -24,3 +24,19 @@ void printUser(Game *game) {
     }
     printf("\n> ");
 }
+
+int printError(Game *game, Error *error) {
+    if (error->isError) {
+        if (error->isArguments) {
+            printf("\x1B[31mYou must provied 2 arguments.\x1B[0m\n");
+        }
+        if (error->isAlpha) {
+            printf("\x1B[31mYou're 2 arguments must be integer.\x1B[0m\n");
+        }
+        if (error->isSize) {
+            printf("\x1B[31mYou're integer must be 0<...<%d.\x1B[0m\n", game->tabSize - 1);
+        }
+        return 1;
+    }
+    return 0;
+}

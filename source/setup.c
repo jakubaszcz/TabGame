@@ -6,3 +6,12 @@ Game *setupGame(void) {
     game->time = 0;
     return game;
 }
+
+Error *setupError(void) {
+    Error *error = malloc(sizeof(Error));
+    error->isError = 0;
+    error->isSize = 0;
+    error->isAlpha = 0;
+    error->isArguments = 0;
+    return error;
+}

@@ -1,6 +1,9 @@
 SRC	=	./source/game.c	\
 		./source/setup.c	\
 		./source/print.c	\
+		./source/free.c	\
+		./source/reset.c	\
+		./source/gameplay/input.c	\
 
 CFLAGS	=	-g
 
